@@ -166,3 +166,26 @@ ul {
         font-size: 9px;
     }
 }
+
+.rsvp-link {
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+  margin: 0 4px;
+  position: relative;
+}
+
+.rsvp-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: #000;
+  transition: width 0.25s ease;
+}
+
+.rsvp-link:hover::after {
+  width: 100%;
+}
