@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Monsieur+La+Doulaise&family=Pacifico&family=Playwrite+IN+Guides&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -24,12 +25,30 @@ header {
 }
 
 nav a {
-    margin: 0 15px;
+    margin: 0 20px;
     text-decoration: none;
     color: #000;
     font-weight: 500;
     position: relative;
     padding-bottom: 5px;
+}
+
+/* Prevent nav wrapping on mobile */
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* Hide scrollbar but keep scroll */
+nav::-webkit-scrollbar {
+  display: none;
+}
+nav {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 nav a::after {
@@ -51,8 +70,15 @@ nav a.active::after {
     width: 100%;
 }
 
+@media (max-width: 480px) {
+  nav a {
+    margin: 0 10px;
+    font-size: 14px;
+  }
+}
+
 .container {
-    max-width: 900px;
+    /* max-width: 1000px; */
     margin: 50px auto;
     padding: 0 20px;
     flex: 1;
@@ -205,9 +231,50 @@ ul {
 }
 
 .programmes {
-font-family: "Dancing Script", cursive;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 20px;
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
 }
+
+
+.map-wrapper {
+  max-width: 850px !important;
+  margin: 25px auto 0;
+}
+
+.map-container {
+  border: 1px solid #000;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 350px;
+  display: block;
+}
+
+.wed-container{
+    padding: 50px;
+}
+
+@media (max-width: 600px) {
+  .map-wrapper {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .map-container iframe {
+    height: 250px;
+  }
+
+  .wed-container {
+    padding: 10px;
+  }
+}
+
+
+
+
+
+
