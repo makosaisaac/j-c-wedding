@@ -1,4 +1,4 @@
-const weddingDate = new Date("April 5, 2026 14:00:00").getTime();
+const weddingDate = new Date("April 5, 2026 13:30:00").getTime();
 
 const countdown = setInterval(() => {
     const now = new Date().getTime();
@@ -21,3 +21,16 @@ const countdown = setInterval(() => {
     document.getElementById("minutes").innerText = minutes;
     document.getElementById("seconds").innerText = seconds;
 }, 1000);
+
+
+const slide1 = document.querySelector(".slide1");
+const slide2 = document.querySelector(".slide2");
+const animationPage = document.querySelector(".animation-page");
+const mainContent = document.querySelector(".main-content");
+
+animationPage.addEventListener("click", () => {    
+    mainContent.style.display = "flex";
+    slide1.style.transform = "translateX(-100%)";
+    slide2.style.transform = "translateX(100%)";
+    // animationPage.style.opacity = "0";
+});

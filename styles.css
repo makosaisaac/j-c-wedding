@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Monsieur+La+Doulaise&family=Pacifico&family=Playwrite+IN+Guides&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lavishly+Yours&family=Shadows+Into+Light&display=swap');
 
 * {
     margin: 0;
@@ -12,14 +13,10 @@ body {
     font-family: 'Montserrat', sans-serif;
     color: #000;
     line-height: 1.7;
-    background-image: url('/images/bg4.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 header {
-    border-bottom: 1px solid #00000059;
+    /* border-bottom: 1px solid #00000059; */
     padding: 20px 0;
     text-align: center;
 }
@@ -35,20 +32,21 @@ nav a {
 
 /* Prevent nav wrapping on mobile */
 nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 /* Hide scrollbar but keep scroll */
 nav::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
+
 nav {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 nav a::after {
@@ -71,10 +69,10 @@ nav a.active::after {
 }
 
 @media (max-width: 480px) {
-  nav a {
-    margin: 0 10px;
-    font-size: 14px;
-  }
+    nav a {
+        margin: 0 10px;
+        font-size: 14px;
+    }
 }
 
 .container {
@@ -93,9 +91,10 @@ h1.headers {
 
 h1,
 h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: "Lavishly Yours", cursive;
+    font-weight: 400;
+    font-style: normal;
     text-align: center;
-    margin-bottom: 25px;
 }
 
 h1 {
@@ -161,7 +160,7 @@ ul {
     }
 
     .time-box {
-        padding: 14px 12px;
+        padding: 17px 15px;
         min-width: 70px;
     }
 
@@ -185,7 +184,7 @@ ul {
     }
 
     .time-box span {
-        font-size: 20px;
+        font-size: 25px;
     }
 
     .time-box small {
@@ -217,11 +216,17 @@ ul {
 }
 
 
-.cont {
+.main-content {
     background: linear-gradient(to bottom left, #e5e5e580, #ffffffde);
     min-height: 100vh;
-    display: flex;
+    display: none;
     flex-direction: column;
+    position: relative;
+    background-image: url('/images/bg4.jpg');
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-position: top;
+    overflow-x: hidden;
 }
 
 .names {
@@ -236,45 +241,150 @@ ul {
     font-weight: 400;
     font-style: normal;
     font-size: 20px;
+    padding: 20px 10px;
+    border: #000 1px solid;
+    border-radius: 20px;
 }
 
 
 .map-wrapper {
-  max-width: 850px !important;
-  margin: 25px auto 0;
+    max-width: 850px !important;
+    margin: 25px auto 0;
 }
 
 .map-container {
-  border: 1px solid #000;
+    border: 1px solid #000;
 }
 
 .map-container iframe {
-  width: 100%;
-  height: 350px;
-  display: block;
+    width: 100%;
+    height: 350px;
+    display: block;
 }
 
-.wed-container{
+.wed-container {
     padding: 50px;
 }
 
 @media (max-width: 600px) {
-  .map-wrapper {
-    max-width: 100%;
-    padding: 0;
-  }
+    .map-wrapper {
+        max-width: 100%;
+        padding: 0;
+    }
 
-  .map-container iframe {
-    height: 250px;
-  }
+    .map-container iframe {
+        height: 250px;
+    }
 
-  .wed-container {
-    padding: 10px;
-  }
+    .wed-container {
+        padding: 10px;
+    }
 }
 
+.animation-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    overflow-x: hidden;
+}
 
+.slide1,
+.slide2 {
+    width: 50%;
+    height: 100%;
+    background-color: #fff;
+    transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    display: grid;
+    justify-content: right;
+    align-items: center;
+    border: none;
+    outline: none;
+}
 
+.slide2 {
+    justify-content: left;
+    align-items: left;
+}
 
+.intro-text {
+    background-color: #000;
+    width: 150px;
+    height: 300px;
+    color: white;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+    outline: none;
+}
 
+.intro-text-1 {
+    text-align: right;
+    align-items: right;
+    border-radius: 100vh 0 0 100vh;
+}
 
+.intro-text-2 {
+    text-align: left !important;
+    align-items: left;
+    border-radius: 0 100vh 100vh 0;
+}
+
+.intro-text h2{
+    font-size: 50px;
+}
+.intro-text p{
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.form-section {
+    border: #000 1px solid;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.form-section form {
+    width: 100%;
+}
+
+.form-section button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+}
+
+.input-text {
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    border: .5px solid #000;
+}
+
+.input-field {
+    padding: 10px 0;
+}
+
+.input-label {
+    font-size: 12px;
+    text-align: left;
+    width: 100%;
+    font-weight: 800;
+}
