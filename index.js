@@ -26,11 +26,23 @@ const countdown = setInterval(() => {
 const slide1 = document.querySelector(".slide1");
 const slide2 = document.querySelector(".slide2");
 const animationPage = document.querySelector(".animation-page");
+const animateButton = document.querySelector(".animate-button");
 const mainContent = document.querySelector(".main-content");
+const submitButton = document.querySelector(".submit-button");
 
-animationPage.addEventListener("click", () => {    
+animateButton.addEventListener("click", () => {
+    animateButton.style.display = "none";
     mainContent.style.display = "flex";
     slide1.style.transform = "translateX(-100%)";
     slide2.style.transform = "translateX(100%)";
-    // animationPage.style.opacity = "0";
 });
+
+submitButton.addEventListener("click", () => {
+    localStorage.setItem("rsvpSubmitted", "true");
+});
+
+
+if (localStorage.getItem("rsvpSubmitted") === "true") {
+    document.querySelector(".form-section").style.display = "none";
+    document.querySelector(".success-message").style.display = "block";
+}
